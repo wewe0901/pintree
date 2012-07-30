@@ -6,9 +6,12 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mongoose = require('mongoose');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/pintree');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -27,6 +30,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.post('/post',routes.post);
+app.get('/show/:id',routes.show);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

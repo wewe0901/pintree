@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  ul
+    each message in messages
+        li [#{message.title}] #{message.message}
+            a.icon-email(href="/show/#{message._id}") show
+       
+  form.well.span3(action='/post',method='post')
+    label title
+    input(type='text',name='title')
+    label message
+    textarea(name='message')
+    button.btn(type='submit') submit      
+  hr
+  footer PinTree   
+
+
+  
