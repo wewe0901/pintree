@@ -4,8 +4,12 @@ block content
     div.well.span8.offset4
         h1 #{message.title}
         div.message #{message.message}
-        div.date #{message.date}
+        div.date 
+            h3 post date 
+            p #{message.date}
         div.location
-        div.future
+        div.future 
+            h3 public date
+            p #{message.publicDate}
 
 

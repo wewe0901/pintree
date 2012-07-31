@@ -8,7 +8,8 @@ var mongoose = require('mongoose')
 var messageSchema = new Schema({
         title: String,
         date: {type: Date, default: Date.now},
-        message: String
+        message: String,
+        publicDate: Date
 });
 
 
