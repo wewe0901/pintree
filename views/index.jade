@@ -4,15 +4,23 @@ block content
   ul
     each message in messages
         li [#{message.title}] #{message.message}
-            a.icon-email(href="/show/#{message._id}") show
+            a.icon-email(href="/show/#{message._id}") detail
        
   form.well.span3(action='/post',method='post')
     label title
     input(type='text',name='title')
     label message
     textarea(name='message')
+    label public date
+    div.controls
+        div.input-prepend
+            span.add-on
+                i.icon-calendar
+            input.span2.calendar(type='text',name='publicDate')
     button.btn(type='submit') submit      
   hr
+  script
+    $('.calendar').datepicker();
   footer PinTree   
 
 
