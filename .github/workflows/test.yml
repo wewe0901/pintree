@@ -14,5 +14,5 @@ jobs:
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: 'echo Found it!'
+      - run: 'echo Found it! test'
         if: steps.check.outputs.triggered == 'true'
