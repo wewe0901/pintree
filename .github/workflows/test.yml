@@ -14,5 +14,21 @@ jobs:
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: 'echo Found it!'
+      - run: 'echo Found it! test'
         if: steps.check.outputs.triggered == 'true'
+      - name: comment PR
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "Check out this message! success"
+          check_for_duplicate_msg: false  # OPTIONAL 
+        if: steps.check.outputs.triggered == 'true' and scuccess()
+      - name: comment PR
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "Check out this message! faile"
+          check_for_duplicate_msg: false  # OPTIONAL 
+        if: steps.check.outputs.triggered == 'true' and failure()
