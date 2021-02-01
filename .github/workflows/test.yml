@@ -29,6 +29,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: "Check out this message! faile"
+          msg: "Check out this message! fail"
           check_for_duplicate_msg: false  # OPTIONAL 
         if: steps.check.outputs.triggered == 'true' and failure()
